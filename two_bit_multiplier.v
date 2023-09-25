@@ -1,14 +1,14 @@
 //Verilog Code for Two BIT Multiplier
-module two_bit_multiplier(A,B,S,Co,C);
+module two_bit_multiplier(A,B,S,Co);
 input [1:0]A,B;
 output [2:0]S;
-output Co,C;
+output Co;
 
 //For AoBo Output
 andgate a1(A[0],B[0],S[0]); /*we can also use built in AND gate Primitives*/
 
 //For A1Bo+AoB1 Output
-wire w1,w2,w3,w4;
+wire w1,w2,w3,w4,C;
 andgate a2(A[1],B[0],w1);  /*we can also use built in AND gate Primitives*/
 andgate a3(A[0],B[1],w2); /*we can also use built in AND gate Primitives*/
 halfadder h1(w1,w2,S[1],C);
